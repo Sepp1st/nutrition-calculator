@@ -2,6 +2,7 @@ from sys import exit
 import csv
 import pandas as pd
 from re import split
+from pathlib import Path
 
 
 def main():
@@ -49,14 +50,17 @@ def main():
                 food = "init"
                 print(f"\nMeal No.{meal_count} consists of: ")
                 food = input(f"Meal No.{meal_count} Item No.{item_count} (XXg AA): ")
-                if food == "end":
+                if food.strip() == "end":
                     print()
                     break
-                if food == "full":
+                if food.strip() == "full":
                     meal_count += 1
                     item_count = 1
                 else:
-                    food_weight, food_name = food.split("g ", 1)
+                    try:
+                        food_weight, food_name = food.split("g ", 1)
+                    except Exception:
+                         exit("Looks like something went wrong, i need you to type in input as i instructed next time.")
                     food_protein, food_carb, food_fat = Food_macros(int(food_weight), food_name, food_data_by_name)
                     current_protein += food_protein
                     current_carb += food_carb
@@ -74,6 +78,8 @@ def main():
             for item in recommend_list:
                 print(f"{item}", end=", ")
         print("\nIt was great working with you! Until next time!\n")
+        #Delete the file after use
+        Path("Food.csv").unlink()
     # Handle exceptions assuming user typed in something wrong
     except Exception:
         exit("Looks like something went wrong, i need you to type in input as i instructed next time.")
