@@ -41,18 +41,23 @@ First function with 4 parameters:
 > - I used to get *out of the charts* nutritional values during the testing phase of this program. 
 > - I believe it may still give a reliable glance overall for most of the food composition.
 
+## A peek into the processed output file:
+![A peek into the processed output file](images/Food_csv_peek.png)
+
 ### Food_macros(weight, name, data)
 - Weight is the quantity of food in grams. *Provided that your data is food per 100g*.
 - Name is the name of the food you wanted to calculate its nutritional value. Foods must be **general** enough to be processed since there are way too many types of food. You may check the Output File to see what it contains.
-- Data is the parameter, the Dict variable (containing key-value pairs) plugged in, that holds the data. This may seem tricky but it only takes one line of code to turn the file_reader to the data I used.
+- Data is the parameter, the Dict variable (containing key-value pairs) plugged in, that holds the data. This may seem tricky but it only takes one line of code to turn the file_reader to the data I used. This is **REQUIRED** in order not to lookup the csv file over and over again.
 - Also includes the Exception in which the food *name* value was not inside the data.
+> [!NOTE]
+> Returns a 3-integer list of the protein, carb and fat content respectively.
 ```
 Turn file_reader to data demo:
 food_data_by_name={row[name]:row for row in reader}
 This turn each row of food to a Dict of rows in which keys are the names and values are the data itself.
 ```
-> [!NOTE]
-> Returns a 3-integer list of the protein, carb and fat content respectively.
+## A peek into the data holding variable:
+![A peek of 5 rows into the data holding variable](images/Food_data_peek.png)
 
 ### Macros_deficit(protein, carb, fat)
 - Each parameter is the number of macronutrients away from the intended goal.
