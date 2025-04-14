@@ -54,7 +54,7 @@ This turn each row of food to a Dict of rows in which keys are the names and val
 > [!NOTE]
 > Returns a 3-integer list of the protein, carb and fat content respectively.
 
-### Macros_left(protein, carb, fat)
+### Macros_deficit(protein, carb, fat)
 - Each parameter is the number of macronutrients away from the intended goal.
 - Gives practical food recommendations and warnings when your diet is not _balanced_.
 - Returns a list of foods if lack of nutrition.

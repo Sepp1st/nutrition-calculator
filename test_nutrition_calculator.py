@@ -9,10 +9,10 @@ def test_Food_macros():
             assert project.Food_macros(500,"lettuce", food_data)==[6,14,1]
 
 
-def test_Macros_left():
-    assert project.Macros_left(55,0,0)==["fish", "dairy", "lean meats"]
-    assert project.Macros_left(0,55,0)==["fruits", "veggies", "whole grains"]
-    assert project.Macros_left(55,55,0)==["fish", "dairy", "lean meats", "fruits", "veggies", "whole grains"]
+def test_Macros_deficit():
+    assert project.Macros_deficit(55,0,0)==["fish", "dairy", "lean meats"]
+    assert project.Macros_deficit(0,55,0)==["fruits", "veggies", "whole grains"]
+    assert project.Macros_deficit(55,55,0)==["fish", "dairy", "lean meats", "fruits", "veggies", "whole grains"]
 
 
 def test_Macros_goal():

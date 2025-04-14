@@ -63,14 +63,17 @@ def main():
                     current_fat += food_fat
                     item_count += 1
         # Get the recommendation list if eating too little compared to recommended amount
-        recommend_list = Macros_left(protein_goal - current_protein, carb_goal - current_carb, fat_goal - current_fat)
+        recommend_list = Macros_deficit(protein_goal - current_protein, carb_goal - current_carb, fat_goal - current_fat)
+        # Print out accumulated macros and calories
+        print(f"\nYou have consumed {current_protein}g protein, {current_carb}g carbohydrates, {current_fat}g fat so far.")
+        print(f"That is around {round(current_protein*4+current_carb*4+current_fat*9)} calories.\n")
         if not recommend_list:
             print("Not bad, you are meeting the nutrition requirements.")
         else:
             print("I suggest including ", end="")
             for item in recommend_list:
                 print(f"{item}", end=", ")
-        print("\nIt was great working with you! Until next time!")
+        print("\nIt was great working with you! Until next time!\n")
     # Handle exceptions assuming user typed in something wrong
     except Exception:
         exit("Looks like something went wrong, i need you to type in input as i instructed next time.")
@@ -96,7 +99,7 @@ def Food_macros(weight, name, data):
         return [0, 0, 0]
 
 
-def Macros_left(protein, carb, fat):
+def Macros_deficit(protein, carb, fat):
     # Initialize food list. Add to recommended and print warnings if large deficit
     food_list = []
     if protein > 50:
