@@ -2,7 +2,7 @@ import nutrition_calculator as project
 import csv
 
 def test_Food_macros():
-    with open("Food.csv","r") as file:
+    with open("../data/Food.csv", "r") as file:
             reader=csv.DictReader(file)
             food_data={row["Description"]:row for row in reader}
             assert project.Food_macros(50, "egg", food_data)==[11,5,7]
