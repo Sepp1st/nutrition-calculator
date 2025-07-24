@@ -1,5 +1,5 @@
 # Nutrition Calculator
-## Video Demo:  <https://youtu.be/wrcSv2t546A>
+## Video Demo:  <https://youtube.com/shorts/iygEy-geNQM?feature=share>
 ## Data Source: [USDA Food Composition Databases on Kaggle]
 (https://www.kaggle.com/datasets/econdata/usda-food-composition-databases)
 ## Description:
